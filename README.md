@@ -18,7 +18,7 @@ Bem-vindo ao **Desafio Clarke Energia**! Este é o frontend de uma **SPA (Single
    - **Limite mínimo de consumo** ⚠️
    - **Número total de clientes** 👥
    - **Avaliação média dos clientes** ⭐
-   - 
+     
 ✅ O sistema garante que um fornecedor **só será listado** se atender ao consumo mínimo do cliente
 
 ---
