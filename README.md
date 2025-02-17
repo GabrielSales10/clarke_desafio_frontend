@@ -8,7 +8,9 @@ Bem-vindo ao **Desafio Clarke Energia**! Este é o frontend de uma **SPA (Single
 
 ## 🚀 Funcionalidades Principais
 ✅ O usuário informa seu **consumo mensal de energia** (exemplo: `30000 kWh`)
+
 ✅ O sistema exibe os fornecedores disponíveis que podem atender essa demanda
+
 ✅ Cada fornecedor possui informações detalhadas, incluindo:
    - **Nome e logo** 🏢
    - **Estado de origem** 📍
@@ -16,6 +18,7 @@ Bem-vindo ao **Desafio Clarke Energia**! Este é o frontend de uma **SPA (Single
    - **Limite mínimo de consumo** ⚠️
    - **Número total de clientes** 👥
    - **Avaliação média dos clientes** ⭐
+   - 
 ✅ O sistema garante que um fornecedor **só será listado** se atender ao consumo mínimo do cliente
 
 ---
