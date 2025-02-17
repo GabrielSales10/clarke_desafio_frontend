@@ -24,8 +24,11 @@ Bem-vindo ao **Desafio Clarke Energia**! Este é o frontend de uma **SPA (Single
 ---
 
 ## 🛠️ Tecnologias Utilizadas
+
 🔹 **React.js** - Construção da interface dinâmica e interativa
+
 🔹 **React Hooks** - Gerenciamento eficiente de estados
+
 🔹 **Axios** - Consumo de APIs
 
 ---
