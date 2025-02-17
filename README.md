@@ -1,3 +1,5 @@
+![print_front](src/assets/print_front.png)
+
 # ⚡ Desafio Clarke Energia - Frontend
 
 ### 🌍 Escolha Inteligente do Seu Fornecedor de Energia
