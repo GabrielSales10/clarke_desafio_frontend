@@ -4,6 +4,15 @@ import './TabelaFornecedores.css';
 const TabelaFornecedores = ({ fornecedores, buscaRealizada }) => {
   const [hoveredRow, setHoveredRow] = useState(null);
   const [selectedFornecedor, setSelectedFornecedor] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);  
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);  
+  };
 
   const handleRowClick = (fornecedor) => {
     setSelectedFornecedor(fornecedor);
@@ -130,7 +139,7 @@ const TabelaFornecedores = ({ fornecedores, buscaRealizada }) => {
         </tbody>
       </table>
 
-      {selectedFornecedor && (
+      {/* {selectedFornecedor && (
         <div style={styles.modal} onClick={handleClosePopup}>
           <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <h3>{selectedFornecedor.nome}</h3>
@@ -142,12 +151,13 @@ const TabelaFornecedores = ({ fornecedores, buscaRealizada }) => {
             <button 
               style={styles.closeButton}
               className="closeButtonHover"
+              onClick={closeModal}
             >
               Fechar
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
