@@ -113,7 +113,7 @@ const TabelaFornecedores = ({ fornecedores, buscaRealizada }) => {
                 onMouseLeave={() => setHoveredRow(null)}
                 onClick={() => handleRowClick(fornecedor)} 
               >
-                <td><img src={`https://clarkedesafiobackend-production.up.railway.app${fornecedor.logo}`} alt={fornecedor.nome} style={styles.logo} /></td>
+                <td><img src={fornecedor.logo} alt={fornecedor.nome} style={styles.logo} /></td>
                 <td>{fornecedor.nome}</td>
                 <td>{fornecedor.estado}</td>
                 <td>R$ {Number(fornecedor.custo_kwh).toFixed(2)}</td>
@@ -123,22 +123,28 @@ const TabelaFornecedores = ({ fornecedores, buscaRealizada }) => {
               </tr>
             ))
           ) : (
-            buscaRealizada && (
-              <tr>
-                <td colSpan="7" style={styles.noData}>Nenhum fornecedor encontrado.</td>
-              </tr>
-            )
+            <tr>
+              <td colSpan="7" style={styles.noData}>Nenhum fornecedor encontrado.</td>
+            </tr>
           )}
         </tbody>
       </table>
 
-      {/* Pop-up para exibir o fornecedor selecionado */}
       {selectedFornecedor && (
-        <div style={styles.modal}>
-          <div style={styles.modalContent}>
-            <h2>Parabéns!</h2>
-            <p>Você escolheu o fornecedor <strong>{selectedFornecedor.nome}</strong>!</p>
-            <button onClick={handleClosePopup} style={styles.closeButton}>Fechar</button>
+        <div style={styles.modal} onClick={handleClosePopup}>
+          <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <h3>{selectedFornecedor.nome}</h3>
+            <p>Estado: {selectedFornecedor.estado}</p>
+            <p>Custo por kWh: R$ {Number(selectedFornecedor.custo_kwh).toFixed(2)}</p>
+            <p>Limite mínimo de kWh: {selectedFornecedor.limite_min_kwh}</p>
+            <p>Nº de clientes: {selectedFornecedor.num_clientes}</p>
+            <p>Avaliação média: {selectedFornecedor.avaliacao_media} ⭐</p>
+            <button 
+              style={styles.closeButton}
+              className="closeButtonHover"
+            >
+              Fechar
+            </button>
           </div>
         </div>
       )}

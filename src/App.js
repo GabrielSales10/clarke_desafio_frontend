@@ -1,23 +1,17 @@
 import React, { useState } from "react";
 import ConsumoForm from "./components/ConsumoForm";
 import TabelaFornecedores from "./components/TabelaFornecedores";
+import buscarFornecedores from "./api"; 
 
 function App() {
   const [fornecedores, setFornecedores] = useState([]);
-  const [consumo, setConsumo] = useState(""); 
-  const [buscaRealizada, setBuscaRealizada] = useState(false); 
+  const [buscaRealizada, setBuscaRealizada] = useState(false);
 
-  const buscarFornecedores = async (consumo) => {
-    setBuscaRealizada(true); 
+  const handleBuscarFornecedores = async (consumo) => {
+    setBuscaRealizada(true);
     try {
-      const response = await fetch("https://clarkedesafiobackend-production.up.railway.app/consumo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ consumo_mensal: Number(consumo) }),
-      });
-
-      const data = await response.json();
-      setFornecedores(data.fornecedores); 
+      const fornecedoresFiltrados = await buscarFornecedores(consumo); 
+      setFornecedores(fornecedoresFiltrados);
     } catch (error) {
       console.error("Erro ao buscar fornecedores:", error);
     }
@@ -26,7 +20,7 @@ function App() {
   return (
     <div style={styles.container}>
       <div style={styles.content}>
-        <ConsumoForm onBuscar={buscarFornecedores} />
+        <ConsumoForm onBuscar={handleBuscarFornecedores} />
         <h3 style={styles.header}>Fornecedores disponíveis:</h3>
         <TabelaFornecedores fornecedores={fornecedores} buscaRealizada={buscaRealizada} />
       </div>
@@ -36,7 +30,7 @@ function App() {
 
 const styles = {
   container: {
-    backgroundColor: '#f7f7f7', 
+    backgroundColor: '#f7f7f7',
     minHeight: '100vh',
     padding: '50px 20px',
     display: 'flex',
