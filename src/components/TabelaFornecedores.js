@@ -113,7 +113,7 @@ const TabelaFornecedores = ({ fornecedores, buscaRealizada }) => {
                 onMouseLeave={() => setHoveredRow(null)}
                 onClick={() => handleRowClick(fornecedor)} 
               >
-                <td><img src={`http://localhost:5000${fornecedor.logo}`} alt={fornecedor.nome} style={styles.logo} /></td>
+                <td><img src={`https://clarkedesafiobackend-production.up.railway.app${fornecedor.logo}`} alt={fornecedor.nome} style={styles.logo} /></td>
                 <td>{fornecedor.nome}</td>
                 <td>{fornecedor.estado}</td>
                 <td>R$ {Number(fornecedor.custo_kwh).toFixed(2)}</td>

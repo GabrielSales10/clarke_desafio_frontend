@@ -10,7 +10,7 @@ function App() {
   const buscarFornecedores = async (consumo) => {
     setBuscaRealizada(true); 
     try {
-      const response = await fetch("http://127.0.0.1:5000/consumo", {
+      const response = await fetch("https://clarkedesafiobackend-production.up.railway.app/consumo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ consumo_mensal: Number(consumo) }),
